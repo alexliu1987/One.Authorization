@@ -1,0 +1,42 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ include file="EF.Utility.CS.ttinclude"#>  
+<#@ output extension=".cs" #>
+<#    CodeGenerationTools code = new CodeGenerationTools(this);
+    MetadataLoader loader = new MetadataLoader(this);
+    CodeRegion region = new CodeRegion(this, 1);
+    MetadataTools ef = new MetadataTools(this);
+
+    string inputFile = @"..\\Authorization.Model\\Authorization_BASE.edmx";
+
+    EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+    string namespaceName = code.VsNamespaceSuggestion();
+
+    EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+#>
+
+using System.Data.Entity;
+using Authorization.Model;
+using Authorization.Framework.EntityRepository;
+using Authorization.Framework.DataBase;
+namespace Authorization.Services
+{	 
+<#
+	 
+    foreach(EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e=>e.Name))
+    { #>
+	public  class <#=            entity.Name.Replace("sys_","")#>Service : EntityRepositoryBase<DbContext,<#=            entity.Name#>>
+    {
+		
+        public <#=            entity.Name.Replace("sys_","")#>Service(DbContext context)
+        {
+            base.Context = context;
+            base.IsOwnContext = false;
+        }
+        public <#=            entity.Name.Replace("sys_","")#>Service()
+        {
+            base.Context = DbContextHelper.CreateDbContext();
+            IsOwnContext = true;
+        }
+	}
+<#    }#>
+}

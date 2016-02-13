@@ -1,0 +1,190 @@
+﻿body {
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: Microsoft Yahei,arial,verdana,sans-serif;
+    background-color: #2192cd/*#EAEAEA*/;
+}
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+
+/*框架*/
+.header {
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+}
+
+.body {
+    width: 100%;
+    height: 660px;
+    background: url('../images/login/back_pic.png') center center no-repeat #2192cd;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    background-color: #eaeaea;
+}
+
+/*logo*/
+.logo {
+    margin: 0 auto;
+    background: url('../images/login/logo3.png') left center no-repeat;
+    height: 100%;
+    width: 1000px;
+    text-indent: 348px;
+}
+
+    .logo img {
+        margin-top: 34px;
+    }
+/*中间部分*/
+.main {
+    margin: 0 auto;
+    height: 100%;
+    width: 1000px;
+}
+
+.login_title {
+    margin-top: 184px;
+    width: 616px;
+    height: 120px;
+    float: left;
+    background: url('../images/login/back_text.png') center center no-repeat;
+}
+
+.login_form {
+    margin-top: 82px;
+    width: 372px;
+    height: 475px;
+    float: right;
+    background-color: #fff;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
+}
+
+.form_title {
+    width: 100%;
+    height: 54px;
+    background-color: #74bde3;
+}
+
+    .form_title img {
+        margin: 13px;
+    }
+
+.form_item {
+    margin: 0 auto;
+    width: 341px;
+    font-size: 18px;
+    color: #666;
+}
+
+.form_verify {
+    margin: 0 auto;
+    width: 341px;
+    height: 40px;
+    text-align: right;
+}
+
+.form_button {
+    margin: 0 auto;
+    width: 341px;
+}
+
+.form_getpwd {
+    margin: 0 auto;
+    width: 341px;
+    height: 28px;
+    text-align: right;
+}
+
+.form_item input[type="text"], .form_item input[type="password"] {
+    margin-top: 8px;
+    border: 0;
+    width: 100%;
+    height: 39px;
+    text-indent: 50px;
+    font-size: 18px;
+}
+
+.form_item input.input_user {
+    background: url('../images/login/textbox_user.png') center center no-repeat;
+}
+
+    .form_item input.input_user:focus {
+        background-image: url('../images/login/textbox_user_on.png');
+    }
+
+.form_item input.input_pwd {
+    background: url('../images/login/textbox_pwd.png') center center no-repeat;
+}
+
+    .form_item input.input_pwd:focus {
+        background-image: url('../images/login/textbox_pwd_on.png');
+    }
+
+.form_item input.input_verify {
+    background: url('../images/login/textbox_verify.png') center center no-repeat;
+}
+
+    .form_item input.input_verify:focus {
+        background-image: url('../images/login/textbox_verify_on.png');
+    }
+
+.form_verify a {
+    line-height: 40px;
+    font-size: 14px;
+    color: #3475ea;
+}
+
+.form_verify img {
+    vertical-align: middle;
+}
+
+.form_getpwd a {
+    line-height: 33px;
+    font-size: 14px;
+    color: #3475ea;
+}
+
+.form_item a.reg {
+    line-height: 40px;
+    color: #f5923c;
+    width: 100px;
+    margin-left: 30px;
+}
+
+.btnLogin {
+    border: 0;
+    width: 341px;
+    height: 40px;
+    background: url('../images/login/btn_login.png') center center no-repeat;
+}
+
+    .btnLogin:active {
+        background-image: url('../images/login/btn_login_down.png');
+    }
+
+.btnReg {
+    border: 0;
+    margin-left: 18px;
+    width: 203px;
+    height: 40px;
+    background: url('../images/login/btn_reg.png') center center no-repeat;
+}
+
+    .btnReg:active {
+        background-image: url('../images/login/btn_reg_down.png');
+    }
+
+hr.form_split {
+    margin: 5px auto;
+    width: 341px;
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+}

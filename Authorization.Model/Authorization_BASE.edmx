@@ -1,0 +1,1213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AuthorizationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sys_Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActionCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActionIco" Type="nvarchar(max)" />
+          <Property Name="ActionType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+          <Property Name="AppId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_App">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AppCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ico" Type="nvarchar(max)" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_Dictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+          <Property Name="sys_DictionaryType_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_DictionaryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_ErrorLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogContent" Type="text" />
+          <Property Name="LogTime" Type="datetime" />
+          <Property Name="Ip" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="sys_ForbidIp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_LoginLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uid" Type="int" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Ip" Type="nvarchar(max)" />
+          <Property Name="Mac" Type="nvarchar(max)" />
+          <Property Name="LoginTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="RealName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="IsUsing" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="RoleRightStr" Type="nvarchar(max)" />
+          <Property Name="RoleOperResStr" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+          <Property Name="sys_MemberExtend_Id" Type="int" Nullable="false" />
+          <Property Name="sys_Orgnization_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_MemberExtend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="IdCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LastLoginIP" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsOnline" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_Membersys_Role">
+          <Key>
+            <PropertyRef Name="sys_Member_id" />
+            <PropertyRef Name="sys_Role_Id" />
+          </Key>
+          <Property Name="sys_Member_id" Type="int" Nullable="false" />
+          <Property Name="sys_Role_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ico" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsOperRes" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+          <Property Name="AppId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_Menusys_Action">
+          <Key>
+            <PropertyRef Name="sys_Menu_Id" />
+            <PropertyRef Name="sys_Action_Id" />
+          </Key>
+          <Property Name="sys_Menu_Id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="sys_Action_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_OperLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OperContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModuleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Uid" Type="int" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Ip" Type="nvarchar(max)" />
+          <Property Name="Mac" Type="nvarchar(max)" />
+          <Property Name="LogTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys_Orgnization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgnizationName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PId" Type="int" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoleCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" />
+          <Property Name="RoleRightStr" Type="nvarchar(max)" />
+          <Property Name="RoleOperResStr" Type="nvarchar(max)" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“XF.MIS.Authorization.dbo.vw_AppMenu”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_AppMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MenuName" />
+            <PropertyRef Name="MenuCode" />
+            <PropertyRef Name="PId" />
+            <PropertyRef Name="Url" />
+            <PropertyRef Name="Ico" />
+            <PropertyRef Name="IsUsing" />
+            <PropertyRef Name="SortIndex" />
+            <PropertyRef Name="Describe" />
+            <PropertyRef Name="IsOperRes" />
+            <PropertyRef Name="AppId" />
+            <PropertyRef Name="AppCode" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ico" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsUsing" Type="bit" Nullable="false" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="Describe" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsOperRes" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateRealName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyUserName" Type="varchar" MaxLength="50" />
+          <Property Name="ModifyRealName" Type="varchar" MaxLength="50" />
+          <Property Name="AppId" Type="int" Nullable="false" />
+          <Property Name="AppCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“XF.MIS.Authorization.dbo.vw_MemberRole”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="vw_MemberRole">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="RoleCode" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="RealName" Type="varchar" MaxLength="50" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoleCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RoleRightStr" Type="nvarchar(max)" />
+          <Property Name="RoleOperResStr" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_sys_Action_sys_App">
+          <End Role="sys_App" Type="Self.sys_App" Multiplicity="1" />
+          <End Role="sys_Action" Type="Self.sys_Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_App">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Action">
+              <PropertyRef Name="AppId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Dictionarysys_DictionaryType">
+          <End Role="sys_DictionaryType" Type="Self.sys_DictionaryType" Multiplicity="1" />
+          <End Role="sys_Dictionary" Type="Self.sys_Dictionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_DictionaryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Dictionary">
+              <PropertyRef Name="sys_DictionaryType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Membersys_MemberExtend">
+          <End Role="sys_MemberExtend" Type="Self.sys_MemberExtend" Multiplicity="1" />
+          <End Role="sys_Member" Type="Self.sys_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_MemberExtend">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Member">
+              <PropertyRef Name="sys_MemberExtend_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Membersys_Role_sys_Member">
+          <End Role="sys_Member" Type="Self.sys_Member" Multiplicity="1" />
+          <End Role="sys_Membersys_Role" Type="Self.sys_Membersys_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_Member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sys_Membersys_Role">
+              <PropertyRef Name="sys_Member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Membersys_Role_sys_Role">
+          <End Role="sys_Role" Type="Self.sys_Role" Multiplicity="1" />
+          <End Role="sys_Membersys_Role" Type="Self.sys_Membersys_Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Membersys_Role">
+              <PropertyRef Name="sys_Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Menu_sys_App">
+          <End Role="sys_App" Type="Self.sys_App" Multiplicity="1" />
+          <End Role="sys_Menu" Type="Self.sys_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_App">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Menu">
+              <PropertyRef Name="AppId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Menusys_Action_sys_Action">
+          <End Role="sys_Action" Type="Self.sys_Action" Multiplicity="1" />
+          <End Role="sys_Menusys_Action" Type="Self.sys_Menusys_Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_Action">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Menusys_Action">
+              <PropertyRef Name="sys_Action_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Menusys_Action_sys_Menu">
+          <End Role="sys_Menu" Type="Self.sys_Menu" Multiplicity="1" />
+          <End Role="sys_Menusys_Action" Type="Self.sys_Menusys_Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Menusys_Action">
+              <PropertyRef Name="sys_Menu_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Orgnizationsys_Member">
+          <End Role="sys_Orgnization" Type="Self.sys_Orgnization" Multiplicity="1" />
+          <End Role="sys_Member" Type="Self.sys_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_Orgnization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Member">
+              <PropertyRef Name="sys_Orgnization_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AuthorizationModelStoreContainer">
+          <EntitySet Name="sys_Action" EntityType="Self.sys_Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_App" EntityType="Self.sys_App" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Dictionary" EntityType="Self.sys_Dictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_DictionaryType" EntityType="Self.sys_DictionaryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_ErrorLog" EntityType="Self.sys_ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_ForbidIp" EntityType="Self.sys_ForbidIp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_LoginLog" EntityType="Self.sys_LoginLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Member" EntityType="Self.sys_Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_MemberExtend" EntityType="Self.sys_MemberExtend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Membersys_Role" EntityType="Self.sys_Membersys_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Menu" EntityType="Self.sys_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Menusys_Action" EntityType="Self.sys_Menusys_Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_OperLog" EntityType="Self.sys_OperLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Orgnization" EntityType="Self.sys_Orgnization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_Role" EntityType="Self.sys_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_AppMenu" EntityType="Self.vw_AppMenu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_AppMenu].[Id] AS [Id], 
+    [vw_AppMenu].[MenuName] AS [MenuName], 
+    [vw_AppMenu].[MenuCode] AS [MenuCode], 
+    [vw_AppMenu].[PId] AS [PId], 
+    [vw_AppMenu].[Url] AS [Url], 
+    [vw_AppMenu].[Ico] AS [Ico], 
+    [vw_AppMenu].[IsUsing] AS [IsUsing], 
+    [vw_AppMenu].[SortIndex] AS [SortIndex], 
+    [vw_AppMenu].[Describe] AS [Describe], 
+    [vw_AppMenu].[IsOperRes] AS [IsOperRes], 
+    [vw_AppMenu].[IsDelete] AS [IsDelete], 
+    [vw_AppMenu].[CreateDate] AS [CreateDate], 
+    [vw_AppMenu].[CreateUserName] AS [CreateUserName], 
+    [vw_AppMenu].[CreateRealName] AS [CreateRealName], 
+    [vw_AppMenu].[ModifyDate] AS [ModifyDate], 
+    [vw_AppMenu].[ModifyUserName] AS [ModifyUserName], 
+    [vw_AppMenu].[ModifyRealName] AS [ModifyRealName], 
+    [vw_AppMenu].[AppId] AS [AppId], 
+    [vw_AppMenu].[AppCode] AS [AppCode]
+    FROM [dbo].[vw_AppMenu] AS [vw_AppMenu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_MemberRole" EntityType="Self.vw_MemberRole" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_MemberRole].[id] AS [id], 
+    [vw_MemberRole].[UserName] AS [UserName], 
+    [vw_MemberRole].[RealName] AS [RealName], 
+    [vw_MemberRole].[Sex] AS [Sex], 
+    [vw_MemberRole].[Email] AS [Email], 
+    [vw_MemberRole].[RoleName] AS [RoleName], 
+    [vw_MemberRole].[RoleCode] AS [RoleCode], 
+    [vw_MemberRole].[RoleRightStr] AS [RoleRightStr], 
+    [vw_MemberRole].[RoleOperResStr] AS [RoleOperResStr]
+    FROM [dbo].[vw_MemberRole] AS [vw_MemberRole]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_sys_Action_sys_App" Association="Self.FK_sys_Action_sys_App">
+            <End Role="sys_App" EntitySet="sys_App" />
+            <End Role="sys_Action" EntitySet="sys_Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Dictionarysys_DictionaryType" Association="Self.FK_sys_Dictionarysys_DictionaryType">
+            <End Role="sys_DictionaryType" EntitySet="sys_DictionaryType" />
+            <End Role="sys_Dictionary" EntitySet="sys_Dictionary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Membersys_MemberExtend" Association="Self.FK_sys_Membersys_MemberExtend">
+            <End Role="sys_MemberExtend" EntitySet="sys_MemberExtend" />
+            <End Role="sys_Member" EntitySet="sys_Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Membersys_Role_sys_Member" Association="Self.FK_sys_Membersys_Role_sys_Member">
+            <End Role="sys_Member" EntitySet="sys_Member" />
+            <End Role="sys_Membersys_Role" EntitySet="sys_Membersys_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Membersys_Role_sys_Role" Association="Self.FK_sys_Membersys_Role_sys_Role">
+            <End Role="sys_Role" EntitySet="sys_Role" />
+            <End Role="sys_Membersys_Role" EntitySet="sys_Membersys_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Menu_sys_App" Association="Self.FK_sys_Menu_sys_App">
+            <End Role="sys_App" EntitySet="sys_App" />
+            <End Role="sys_Menu" EntitySet="sys_Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Menusys_Action_sys_Action" Association="Self.FK_sys_Menusys_Action_sys_Action">
+            <End Role="sys_Action" EntitySet="sys_Action" />
+            <End Role="sys_Menusys_Action" EntitySet="sys_Menusys_Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Menusys_Action_sys_Menu" Association="Self.FK_sys_Menusys_Action_sys_Menu">
+            <End Role="sys_Menu" EntitySet="sys_Menu" />
+            <End Role="sys_Menusys_Action" EntitySet="sys_Menusys_Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Orgnizationsys_Member" Association="Self.FK_sys_Orgnizationsys_Member">
+            <End Role="sys_Orgnization" EntitySet="sys_Orgnization" />
+            <End Role="sys_Member" EntitySet="sys_Member" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AuthorizationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AuthorizationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sys_Action" EntityType="AuthorizationModel.sys_Action" />
+          <EntitySet Name="sys_App" EntityType="AuthorizationModel.sys_App" />
+          <EntitySet Name="sys_Dictionary" EntityType="AuthorizationModel.sys_Dictionary" />
+          <EntitySet Name="sys_DictionaryType" EntityType="AuthorizationModel.sys_DictionaryType" />
+          <EntitySet Name="sys_ErrorLog" EntityType="AuthorizationModel.sys_ErrorLog" />
+          <EntitySet Name="sys_ForbidIp" EntityType="AuthorizationModel.sys_ForbidIp" />
+          <EntitySet Name="sys_LoginLog" EntityType="AuthorizationModel.sys_LoginLog" />
+          <EntitySet Name="sys_Member" EntityType="AuthorizationModel.sys_Member" />
+          <EntitySet Name="sys_MemberExtend" EntityType="AuthorizationModel.sys_MemberExtend" />
+          <EntitySet Name="sys_Menu" EntityType="AuthorizationModel.sys_Menu" />
+          <EntitySet Name="sys_OperLog" EntityType="AuthorizationModel.sys_OperLog" />
+          <EntitySet Name="sys_Orgnization" EntityType="AuthorizationModel.sys_Orgnization" />
+          <EntitySet Name="sys_Role" EntityType="AuthorizationModel.sys_Role" />
+          <AssociationSet Name="FK_sys_Action_sys_App" Association="AuthorizationModel.FK_sys_Action_sys_App">
+            <End Role="sys_App" EntitySet="sys_App" />
+            <End Role="sys_Action" EntitySet="sys_Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Menu_sys_App" Association="AuthorizationModel.FK_sys_Menu_sys_App">
+            <End Role="sys_App" EntitySet="sys_App" />
+            <End Role="sys_Menu" EntitySet="sys_Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Dictionarysys_DictionaryType" Association="AuthorizationModel.FK_sys_Dictionarysys_DictionaryType">
+            <End Role="sys_DictionaryType" EntitySet="sys_DictionaryType" />
+            <End Role="sys_Dictionary" EntitySet="sys_Dictionary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Membersys_MemberExtend" Association="AuthorizationModel.FK_sys_Membersys_MemberExtend">
+            <End Role="sys_MemberExtend" EntitySet="sys_MemberExtend" />
+            <End Role="sys_Member" EntitySet="sys_Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_Orgnizationsys_Member" Association="AuthorizationModel.FK_sys_Orgnizationsys_Member">
+            <End Role="sys_Orgnization" EntitySet="sys_Orgnization" />
+            <End Role="sys_Member" EntitySet="sys_Member" />
+          </AssociationSet>
+          <AssociationSet Name="sys_Membersys_Role" Association="AuthorizationModel.sys_Membersys_Role">
+            <End Role="sys_Member" EntitySet="sys_Member" />
+            <End Role="sys_Role" EntitySet="sys_Role" />
+          </AssociationSet>
+          <AssociationSet Name="sys_Menusys_Action" Association="AuthorizationModel.sys_Menusys_Action">
+            <End Role="sys_Action" EntitySet="sys_Action" />
+            <End Role="sys_Menu" EntitySet="sys_Menu" />
+          </AssociationSet>
+          <EntitySet Name="vw_MemberRole" EntityType="AuthorizationModel.vw_MemberRole" />
+          <EntitySet Name="vw_AppMenu" EntityType="AuthorizationModel.vw_AppMenu" />
+        </EntityContainer>
+        <EntityType Name="sys_Action">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActionCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActionIco" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActionType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="Describe" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sys_App" Relationship="AuthorizationModel.FK_sys_Action_sys_App" FromRole="sys_Action" ToRole="sys_App" />
+          <NavigationProperty Name="sys_Menu" Relationship="AuthorizationModel.sys_Menusys_Action" FromRole="sys_Action" ToRole="sys_Menu" />
+        </EntityType>
+        <EntityType Name="sys_App">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="Describe" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sys_Action" Relationship="AuthorizationModel.FK_sys_Action_sys_App" FromRole="sys_App" ToRole="sys_Action" />
+          <NavigationProperty Name="sys_Menu" Relationship="AuthorizationModel.FK_sys_Menu_sys_App" FromRole="sys_App" ToRole="sys_Menu" />
+        </EntityType>
+        <EntityType Name="sys_Dictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sys_DictionaryType_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sys_DictionaryType" Relationship="AuthorizationModel.FK_sys_Dictionarysys_DictionaryType" FromRole="sys_Dictionary" ToRole="sys_DictionaryType" />
+        </EntityType>
+        <EntityType Name="sys_DictionaryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sys_Dictionary" Relationship="AuthorizationModel.FK_sys_Dictionarysys_DictionaryType" FromRole="sys_DictionaryType" ToRole="sys_Dictionary" />
+        </EntityType>
+        <EntityType Name="sys_ErrorLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LogTime" Type="DateTime" Precision="3" />
+          <Property Name="Ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sys_ForbidIp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sys_LoginLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mac" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoginTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="sys_Member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsUsing" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="RoleRightStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleOperResStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sys_MemberExtend_Id" Type="Int32" Nullable="false" />
+          <Property Name="sys_Orgnization_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sys_MemberExtend" Relationship="AuthorizationModel.FK_sys_Membersys_MemberExtend" FromRole="sys_Member" ToRole="sys_MemberExtend" />
+          <NavigationProperty Name="sys_Orgnization" Relationship="AuthorizationModel.FK_sys_Orgnizationsys_Member" FromRole="sys_Member" ToRole="sys_Orgnization" />
+          <NavigationProperty Name="sys_Role" Relationship="AuthorizationModel.sys_Membersys_Role" FromRole="sys_Member" ToRole="sys_Role" />
+        </EntityType>
+        <EntityType Name="sys_MemberExtend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="IdCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsOnline" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="sys_Member" Relationship="AuthorizationModel.FK_sys_Membersys_MemberExtend" FromRole="sys_MemberExtend" ToRole="sys_Member" />
+        </EntityType>
+        <EntityType Name="sys_Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ico" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="Describe" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsOperRes" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sys_App" Relationship="AuthorizationModel.FK_sys_Menu_sys_App" FromRole="sys_Menu" ToRole="sys_App" />
+          <NavigationProperty Name="sys_Action" Relationship="AuthorizationModel.sys_Menusys_Action" FromRole="sys_Menu" ToRole="sys_Action" />
+        </EntityType>
+        <EntityType Name="sys_OperLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Uid" Type="Int32" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mac" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LogTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="sys_Orgnization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgnizationName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PId" Type="Int32" Nullable="false" />
+          <Property Name="Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sys_Member" Relationship="AuthorizationModel.FK_sys_Orgnizationsys_Member" FromRole="sys_Orgnization" ToRole="sys_Member" />
+        </EntityType>
+        <EntityType Name="sys_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleRightStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleOperResStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sys_Member" Relationship="AuthorizationModel.sys_Membersys_Role" FromRole="sys_Role" ToRole="sys_Member" />
+          <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_sys_Action_sys_App">
+          <End Type="AuthorizationModel.sys_App" Role="sys_App" Multiplicity="1" />
+          <End Type="AuthorizationModel.sys_Action" Role="sys_Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_App">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Action">
+              <PropertyRef Name="AppId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Menu_sys_App">
+          <End Type="AuthorizationModel.sys_App" Role="sys_App" Multiplicity="1" />
+          <End Type="AuthorizationModel.sys_Menu" Role="sys_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_App">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Menu">
+              <PropertyRef Name="AppId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Dictionarysys_DictionaryType">
+          <End Type="AuthorizationModel.sys_DictionaryType" Role="sys_DictionaryType" Multiplicity="1" />
+          <End Type="AuthorizationModel.sys_Dictionary" Role="sys_Dictionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_DictionaryType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Dictionary">
+              <PropertyRef Name="sys_DictionaryType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Membersys_MemberExtend">
+          <End Type="AuthorizationModel.sys_MemberExtend" Role="sys_MemberExtend" Multiplicity="1" />
+          <End Type="AuthorizationModel.sys_Member" Role="sys_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_MemberExtend">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Member">
+              <PropertyRef Name="sys_MemberExtend_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_Orgnizationsys_Member">
+          <End Type="AuthorizationModel.sys_Orgnization" Role="sys_Orgnization" Multiplicity="1" />
+          <End Type="AuthorizationModel.sys_Member" Role="sys_Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_Orgnization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_Member">
+              <PropertyRef Name="sys_Orgnization_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sys_Membersys_Role">
+          <End Type="AuthorizationModel.sys_Member" Role="sys_Member" Multiplicity="*" />
+          <End Type="AuthorizationModel.sys_Role" Role="sys_Role" Multiplicity="*" />
+        </Association>
+        <Association Name="sys_Menusys_Action">
+          <End Type="AuthorizationModel.sys_Action" Role="sys_Action" Multiplicity="*" />
+          <End Type="AuthorizationModel.sys_Menu" Role="sys_Menu" Multiplicity="*" />
+        </Association>
+        <EntityType Name="vw_MemberRole">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="RoleCode" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleRightStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleOperResStr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_AppMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="MenuName" />
+            <PropertyRef Name="MenuCode" />
+            <PropertyRef Name="PId" />
+            <PropertyRef Name="Url" />
+            <PropertyRef Name="Ico" />
+            <PropertyRef Name="IsUsing" />
+            <PropertyRef Name="SortIndex" />
+            <PropertyRef Name="Describe" />
+            <PropertyRef Name="IsOperRes" />
+            <PropertyRef Name="AppId" />
+            <PropertyRef Name="AppCode" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ico" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsing" Type="Boolean" Nullable="false" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="Describe" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsOperRes" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyRealName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppId" Type="Int32" Nullable="false" />
+          <Property Name="AppCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AuthorizationModelStoreContainer" CdmEntityContainer="AuthorizationEntities">
+          <EntitySetMapping Name="sys_Action">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_Action">
+              <MappingFragment StoreEntitySet="sys_Action">
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="ActionIco" ColumnName="ActionIco" />
+                <ScalarProperty Name="ActionCode" ColumnName="ActionCode" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_App">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_App">
+              <MappingFragment StoreEntitySet="sys_App">
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="Ico" ColumnName="Ico" />
+                <ScalarProperty Name="AppCode" ColumnName="AppCode" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_Dictionary">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_Dictionary">
+              <MappingFragment StoreEntitySet="sys_Dictionary">
+                <ScalarProperty Name="sys_DictionaryType_Id" ColumnName="sys_DictionaryType_Id" />
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_DictionaryType">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_DictionaryType">
+              <MappingFragment StoreEntitySet="sys_DictionaryType">
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_ErrorLog">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_ErrorLog">
+              <MappingFragment StoreEntitySet="sys_ErrorLog">
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="LogContent" ColumnName="LogContent" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_ForbidIp">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_ForbidIp">
+              <MappingFragment StoreEntitySet="sys_ForbidIp">
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_LoginLog">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_LoginLog">
+              <MappingFragment StoreEntitySet="sys_LoginLog">
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="Mac" ColumnName="Mac" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_Member">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_Member">
+              <MappingFragment StoreEntitySet="sys_Member">
+                <ScalarProperty Name="sys_Orgnization_Id" ColumnName="sys_Orgnization_Id" />
+                <ScalarProperty Name="sys_MemberExtend_Id" ColumnName="sys_MemberExtend_Id" />
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="RoleOperResStr" ColumnName="RoleOperResStr" />
+                <ScalarProperty Name="RoleRightStr" ColumnName="RoleRightStr" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_MemberExtend">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_MemberExtend">
+              <MappingFragment StoreEntitySet="sys_MemberExtend">
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_Menu">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_Menu">
+              <MappingFragment StoreEntitySet="sys_Menu">
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsOperRes" ColumnName="IsOperRes" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="Ico" ColumnName="Ico" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_OperLog">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_OperLog">
+              <MappingFragment StoreEntitySet="sys_OperLog">
+                <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+                <ScalarProperty Name="Mac" ColumnName="Mac" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+                <ScalarProperty Name="OperContent" ColumnName="OperContent" />
+                <ScalarProperty Name="OperType" ColumnName="OperType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_Orgnization">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_Orgnization">
+              <MappingFragment StoreEntitySet="sys_Orgnization">
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="OrgnizationName" ColumnName="OrgnizationName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_Role">
+            <EntityTypeMapping TypeName="AuthorizationModel.sys_Role">
+              <MappingFragment StoreEntitySet="sys_Role">
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="RoleOperResStr" ColumnName="RoleOperResStr" />
+                <ScalarProperty Name="RoleRightStr" ColumnName="RoleRightStr" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="sys_Membersys_Role" TypeName="AuthorizationModel.sys_Membersys_Role" StoreEntitySet="sys_Membersys_Role">
+            <EndProperty Name="sys_Role">
+              <ScalarProperty Name="Id" ColumnName="sys_Role_Id" />
+            </EndProperty>
+            <EndProperty Name="sys_Member">
+              <ScalarProperty Name="id" ColumnName="sys_Member_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="sys_Menusys_Action" TypeName="AuthorizationModel.sys_Menusys_Action" StoreEntitySet="sys_Menusys_Action">
+            <EndProperty Name="sys_Menu">
+              <ScalarProperty Name="Id" ColumnName="sys_Menu_Id" />
+            </EndProperty>
+            <EndProperty Name="sys_Action">
+              <ScalarProperty Name="Id" ColumnName="sys_Action_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="vw_MemberRole">
+            <EntityTypeMapping TypeName="AuthorizationModel.vw_MemberRole">
+              <MappingFragment StoreEntitySet="vw_MemberRole">
+                <ScalarProperty Name="RoleOperResStr" ColumnName="RoleOperResStr" />
+                <ScalarProperty Name="RoleRightStr" ColumnName="RoleRightStr" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_AppMenu">
+            <EntityTypeMapping TypeName="AuthorizationModel.vw_AppMenu">
+              <MappingFragment StoreEntitySet="vw_AppMenu">
+                <ScalarProperty Name="AppCode" ColumnName="AppCode" />
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="ModifyRealName" ColumnName="ModifyRealName" />
+                <ScalarProperty Name="ModifyUserName" ColumnName="ModifyUserName" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateRealName" ColumnName="CreateRealName" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsOperRes" ColumnName="IsOperRes" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="IsUsing" ColumnName="IsUsing" />
+                <ScalarProperty Name="Ico" ColumnName="Ico" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

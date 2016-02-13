@@ -1,0 +1,90 @@
+﻿body {
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: Microsoft Yahei,arial,verdana,sans-serif;
+}
+
+table {
+    border: 0;
+    margin: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table td {
+        padding: 0;
+    }
+/*登录页面*/
+.logo {
+    /*background: url('../img/logo.png') no-repeat;*/
+    height: 70px;
+    margin-top: 100px;
+    background-position: center;
+}
+
+.login {
+    background: url('../img/login.png') no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    height: 320px;
+    text-align: center;
+}
+
+.login_info {
+    margin: auto;
+    width: 400px;
+    height: 30px;
+    padding-top: 40px;
+    color: red;
+}
+
+.user {
+    height: 40px;
+    padding-top: 12px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.pwd {
+    padding-top: 17px;
+    height: 40px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.LoginInputText {
+    height: 38px;
+    width: 290px;
+    margin-left: 30px;
+    border: 0;
+    background-color: #f4f8f9;
+    border-top: 1px solid #e1e5e6;
+    font-size: 14px;
+    font-family: Microsoft Yahei,arial,verdana,sans-serif;
+    outline: none;
+}
+
+    .LoginInputText:focus {
+        height: 38px;
+        width: 290px;
+        margin-left: 30px;
+        border: 0;
+        background-color: #f4f8f9;
+        border-top: 1px solid #e1e5e6;
+        outline: none;
+    }
+
+.btn_login_div {
+    padding-top: 30px;
+    height: 40px;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.btnLogin {
+    margin-left: 178px;
+    background-image: url('../img/btn_login.png');
+    width: 142px;
+    height: 40px;
+    border: 0;
+}

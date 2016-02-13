@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="184c2802adb04b9e8492ac54bbc2c204" Name="Diagram1">
+        <EntityTypeShape EntityType="AuthorizationModel.sys_Action" Width="1.5" PointX="5" PointY="7.25" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_App" Width="1.5" PointX="2.75" PointY="7.375" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_Dictionary" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_DictionaryType" Width="1.5" PointX="7.75" PointY="1.125" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_ErrorLog" Width="1.5" PointX="9.75" PointY="5.75" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_ForbidIp" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_LoginLog" Width="1.5" PointX="11.75" PointY="5.75" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_Member" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_MemberExtend" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_Menu" Width="1.5" PointX="7.25" PointY="7" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_OperLog" Width="1.5" PointX="11.75" PointY="9.75" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_Orgnization" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AuthorizationModel.sys_Role" Width="1.5" PointX="5.25" PointY="1.75" />
+        <AssociationConnector Association="AuthorizationModel.FK_sys_Action_sys_App" />
+        <AssociationConnector Association="AuthorizationModel.FK_sys_Menu_sys_App" />
+        <AssociationConnector Association="AuthorizationModel.FK_sys_Dictionarysys_DictionaryType" />
+        <AssociationConnector Association="AuthorizationModel.FK_sys_Membersys_MemberExtend" />
+        <AssociationConnector Association="AuthorizationModel.FK_sys_Orgnizationsys_Member" />
+        <AssociationConnector Association="AuthorizationModel.sys_Membersys_Role" />
+        <AssociationConnector Association="AuthorizationModel.sys_Menusys_Action" />
+        <EntityTypeShape EntityType="AuthorizationModel.vw_MemberRole" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AuthorizationModel.vw_AppMenu" Width="1.5" PointX="0.75" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

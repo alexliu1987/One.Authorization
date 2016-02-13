@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录-统一授权站点</title>
+    <link href="App_Themes/css/main.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.min.js"></script>
+</head>
+<body style="background-color: #0683b1;">
+    <div class="logo">
+    </div>
+    <div class="login">
+        <div class="login_info"></div>
+        <div class="user">
+            <input id="tbxUserName" class="LoginInputText" type="text" />
+        </div>
+        <div class="pwd">
+            <input id="tbxPassWord" class="LoginInputText" type="password" />
+        </div>
+        <div class="btn_login_div">
+            <input type="button" id="btnLogin" class="btnLogin" onclick="login()" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+
+            document.getElementById("tbxUserName").focus();
+            $("#tbxUserName").keydown(function (event) {
+                if (event.keyCode == 13) {
+                    login();
+                }
+            });
+            $("#tbxPassWord").keydown(function (event) {
+                if (event.keyCode == 13) {
+                    login();
+                }
+            });
+        });
+
+        //登录
+        function login() {
+            var errorMsg = "";
+            var loginName = document.getElementById("tbxUserName");
+            var password = document.getElementById("tbxPassWord");
+            if (!loginName.value) {
+                errorMsg += "&nbsp;&nbsp;用户名不能为空!";
+            }
+            if (!password.value) {
+                errorMsg += "&nbsp;&nbsp;密码不能为空!";
+            }
+
+            if (errorMsg != "") {
+                $(".login_info").html(errorMsg);
+                $(".login_info").show();
+            }
+            else {
+                $(".login_info").show();
+                $(".login_info").html("&nbsp;&nbsp;正在登录中...");
+                //登录处理
+                $.post("Ajax/common.ashx?oper=ajaxLogin",
+				  { "name": loginName.value, "password": password.value },
+				  function (result) {
+				      if (result.result == "1" || result.result == true) {
+				          $(".login_info").html("&nbsp;&nbsp;登录成功，正在转到主页...");
+				          window.location = "index.aspx";
+				          //				          window.open("../default.aspx", "", "fullscreen=yes");
+				          //				          window.opener = null;
+				          //				          window.open("", "_self");
+				          //				          window.close();  //关闭窗口
+				      }
+				      else {
+				          $(".login_info").html("&nbsp;&nbsp;" + result.returnval);
+				      }
+
+				  }, "json");
+            };
+        };
+        $(function () {
+            $.post("Ajax/common.ashx?oper=ajaxLoginLoad",
+				  "",
+				  function (result) {
+				      if (result.result == "1" || result.result == true) {
+				          $(".login_info").html("&nbsp;&nbsp;登录成功，正在转到主页...");
+				          window.location = "index.aspx";
+				      }
+				  }, "json");
+        });
+    </script>
+</body>
+</html>
